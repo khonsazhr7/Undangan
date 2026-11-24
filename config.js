@@ -100,7 +100,7 @@ window.INVITATION = {
   /* ---------- RSVP (Google Apps Script) ---------- */
   // Tempel URL Web App dari Apps Script di sini (lihat README.md langkah 2).
   // Selama masih kosong, form berjalan dalam mode DEMO (data tidak tersimpan).
-  appsScriptUrl: "",
+  appsScriptUrl: "https://script.google.com/macros/s/AKfycbx_PBnCBFq1XvsX_d807WBnYqlydb-5J4OTNrW-6xE-yZM7P0r8VuTFgdiEdaL_PF2WeA/exec",
 
   maxGuests: 5,                 // maksimal jumlah tamu per RSVP
   wishesRefreshSeconds: 20      // jeda otomatis muat ulang ucapan (detik)
