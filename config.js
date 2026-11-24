@@ -53,7 +53,9 @@ window.INVITATION = {
     name: "Rumah Mempelai Wanita",
     address: "Jl. Slamet Riyadi Gang 5 No. 3, Patrang, Jember",
     // Opsional: tempel link Google Maps dari tombol Share (lebih akurat). Kosongkan "" untuk otomatis dari alamat.
-    mapsUrl: "https://maps.app.goo.gl/m1BLS8m5E3e2QveC9"
+    mapsUrl: "https://maps.app.goo.gl/k14j9Jbv5XS844Hw6",
+    // Titik peta kecil (latitude,longitude) dari link Maps di atas. Kosongkan "" untuk mencari dari alamat.
+    coords: "-8.1500723,113.7218373"
   },
 
   /* ---------- TEKS ---------- */
@@ -77,7 +79,7 @@ window.INVITATION = {
     // Kosongkan deliveryAddress ("") jika tidak menerima kado fisik; kartunya otomatis disembunyikan.
     deliveryName: "Rumah Mempelai Wanita",
     deliveryAddress: "Jl. Slamet Riyadi Gang 5 No. 3, Patrang, Jember",
-    deliveryMapsUrl: "https://maps.app.goo.gl/m1BLS8m5E3e2QveC9"
+    deliveryMapsUrl: "https://maps.app.goo.gl/k14j9Jbv5XS844Hw6"
   },
 
   /* ---------- MEDIA ---------- */

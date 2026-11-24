@@ -116,7 +116,9 @@
   iframe.title = "Peta lokasi acara";
   iframe.loading = "lazy";
   iframe.referrerPolicy = "no-referrer-when-downgrade";
-  iframe.src = "https://www.google.com/maps?q=" + q + "&output=embed";
+  iframe.src = C.venue.coords
+    ? "https://www.google.com/maps?q=" + encodeURIComponent(C.venue.coords) + "&z=17&output=embed"
+    : "https://www.google.com/maps?q=" + q + "&output=embed";
   $("mapFrame").appendChild(iframe);
 
   var cal = "https://calendar.google.com/calendar/render?action=TEMPLATE" +
