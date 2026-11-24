@@ -116,8 +116,10 @@
   iframe.title = "Peta lokasi acara";
   iframe.loading = "lazy";
   iframe.referrerPolicy = "no-referrer-when-downgrade";
-  iframe.src = C.venue.coords
-    ? "https://www.google.com/maps?q=" + encodeURIComponent(C.venue.coords) + "&z=17&output=embed"
+  // Koordinat harus dikirim apa adanya (koma tidak boleh di-encode), kalau tidak Google mencari nama tempat lain.
+  var coords = (C.venue.coords || "").replace(/\s+/g, "");
+  iframe.src = /^-?\d+(\.\d+)?,-?\d+(\.\d+)?$/.test(coords)
+    ? "https://www.google.com/maps?q=" + coords + "&ll=" + coords + "&z=17&output=embed"
     : "https://www.google.com/maps?q=" + q + "&output=embed";
   $("mapFrame").appendChild(iframe);
 
