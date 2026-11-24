@@ -44,7 +44,7 @@
 
   /* ---------- isi konten dari config ---------- */
   var G = C.groom, B = C.bride;
-  document.title = "Undangan " + B.nickname + " & " + G.nickname;
+  document.title = "The Wedding of : " + B.nickname + " & " + G.nickname;
   (function () {
     var h = $("coverNames");
     h.appendChild(el("span", null, B.nickname + " &"));
