@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Undangan Pernikahan</title>
+<meta name="description" content="Undangan pernikahan digital">
+<meta name="theme-color" content="#2a0a12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mr+De+Haviland&family=Poppins:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="invite">
+
+  <!-- COVER -->
+  <section class="cover" id="cover">
+    <div class="cover-photos" aria-hidden="true">
+      <div class="photo" id="cvGroom"></div>
+      <div class="photo" id="cvBride"></div>
+    </div>
+    <div class="cover-shade"></div>
+    <div class="cover-top pad">
+      <p class="eyebrow">The Wedding of</p>
+      <h1 class="caps names" id="coverNames"></h1>
+    </div>
+    <div class="guest pad">
+      <small>Kepada Yth.<br>Bapak/Ibu/Saudara/i</small>
+      <strong id="guestName">Nama Tamu</strong>
+      <button class="btn" id="openBtn" type="button">Buka Undangan</button>
+    </div>
+  </section>
+
+  <!-- AYAT -->
+  <section class="verse pad" id="ayat">
+    <p class="script">Bismillah</p>
+    <p class="q" id="verseText"></p>
+    <cite id="verseSrc"></cite>
+  </section>
+
+  <!-- MEMPELAI -->
+  <section class="couple pad" id="mempelai">
+    <p class="eyebrow">Mempelai</p>
+    <p class="lead" id="openingText"></p>
+    <div class="person" id="bride"></div>
+    <p class="amp">&amp;</p>
+    <div class="person" id="groom"></div>
+  </section>
+
+  <!-- HITUNG MUNDUR -->
+  <section class="countdown pad" id="countdown">
+    <p class="eyebrow" id="countLabel">Menuju Resepsi</p>
+    <div class="count" aria-label="Hitung mundur menuju pernikahan">
+      <div><b id="cdD">00</b><small>Hari</small></div>
+      <div><b id="cdH">00</b><small>Jam</small></div>
+      <div><b id="cdM">00</b><small>Menit</small></div>
+      <div><b id="cdS">00</b><small>Detik</small></div>
+    </div>
+    <a class="btn" id="saveDate" href="#" target="_blank" rel="noopener">Save the Date</a>
+    <p class="hint">Ketuk untuk menyimpan ke Google Calendar</p>
+  </section>
+
+  <!-- ACARA -->
+  <section class="event pad" id="acara">
+    <p class="eyebrow">Save the Date</p>
+    <h2 class="script">Wedding Event</h2>
+    <div id="eventList"></div>
+    <a class="venue-link" id="venueLink" href="#" target="_blank" rel="noopener">
+      <span class="eyebrow">Lokasi</span>
+      <strong id="venueName"></strong>
+      <span id="venueAddress"></span>
+      <em>Buka di Google Maps</em>
+    </a>
+    <div class="map-frame" id="mapFrame"></div>
+  </section>
+
+  <!-- GALERI -->
+  <section class="gallery pad" id="galeri">
+    <h2 class="script">Our Memories</h2>
+    <div class="grid" id="galleryGrid"></div>
+    <video id="galleryVideo" class="wide" controls playsinline preload="none" hidden></video>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp pad" id="rsvp">
+    <div class="head">
+      <p class="eyebrow">RSVP</p>
+      <h2 class="caps">Konfirmasi Kehadiran</h2>
+      <p>Mohon konfirmasi kehadiran dan kirim ucapan untuk kami.</p>
+    </div>
+    <form id="rsvpForm" novalidate>
+      <label for="fName">Nama lengkap
+        <input id="fName" type="text" autocomplete="name" maxlength="80" placeholder="Nama Anda" required>
+      </label>
+      <fieldset class="choice">
+        <legend>Kehadiran</legend>
+        <label class="radio"><input type="radio" name="attend" value="Hadir" checked><span>Hadir</span></label>
+        <label class="radio"><input type="radio" name="attend" value="Tidak Hadir"><span>Tidak Hadir</span></label>
+      </fieldset>
+      <label for="fCount" id="countWrap">Jumlah tamu
+        <select id="fCount"></select>
+      </label>
+      <label for="fMsg">Ucapan &amp; doa
+        <textarea id="fMsg" maxlength="500" placeholder="Tulis ucapan untuk mempelai"></textarea>
+      </label>
+      <button class="btn solid" id="submitBtn" type="submit">Kirim RSVP</button>
+      <p class="note" id="rsvpNote" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- UCAPAN -->
+  <section class="wishes pad" id="ucapan">
+    <h2 class="script">Wedding Wishes</h2>
+    <p class="wishes-count" id="wishesCount"></p>
+    <div class="wish-list" id="wishList" aria-live="polite"></div>
+  </section>
+
+  <!-- HADIAH -->
+  <section class="gift pad" id="hadiah">
+    <h2 class="script" id="giftTitle"></h2>
+    <p class="gift-intro" id="giftIntro"></p>
+    <div id="giftAccounts"></div>
+    <div class="gift-card" id="giftDelivery" hidden>
+      <p class="eyebrow">Kirim Kado</p>
+      <p class="acc-name" id="giftTo"></p>
+      <p class="addr" id="giftAddr"></p>
+      <button class="btn small" type="button" id="copyAddr">Salin alamat</button>
+    </div>
+  </section>
+
+  <!-- PENUTUP -->
+  <section class="closing pad">
+    <p class="script">Terima Kasih</p>
+    <p id="closingText"></p>
+    <p class="eyebrow" id="closingNames"></p>
+  </section>
+</main>
+
+<!-- Tombol musik -->
+<button class="music" id="musicBtn" type="button" aria-label="Putar atau jeda musik" hidden>
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path id="musicIcon" d="M8 5v14l11-7z"/></svg>
+</button>
+<audio id="bgm" loop preload="none"></audio>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
