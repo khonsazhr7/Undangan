@@ -85,7 +85,7 @@ window.INVITATION = {
   /* ---------- MEDIA ---------- */
   // Foto mempelai (groom.photo & bride.photo di atas) dipakai untuk cover dan bagian mempelai.
   coverPhoto: "assets/photos/gallery-5.jpg",   // foto cover (satu foto penuh)
-  eventPhoto: "",          // opsional: foto latar bagian acara. Kosong = pakai foto mempelai wanita
+  eventPhoto: "assets/photos/gallery-6.jpg",   // foto latar bagian acara. Kosong = pakai foto mempelai wanita
   gallery: [               // foto yang filenya belum ada otomatis disembunyikan
     "assets/photos/gallery-1.jpg",
     "assets/photos/gallery-2.jpg",
