@@ -44,7 +44,8 @@ window.INVITATION = {
       timeLabel: "Pukul 18.00 - 21.00 WIB",
       highlight: true,
       countdown: true,
-      note: "Kami menantikan kehadiran Anda"
+      badge: "Kami Menantikan Kehadiran Anda",
+      note: ""
     }
   ],
 
@@ -52,7 +53,7 @@ window.INVITATION = {
     name: "Rumah Mempelai Wanita",
     address: "Jl. Slamet Riyadi Gang 5 No. 3, Patrang, Jember",
     // Opsional: tempel link Google Maps dari tombol Share (lebih akurat). Kosongkan "" untuk otomatis dari alamat.
-    mapsUrl: ""
+    mapsUrl: "https://maps.app.goo.gl/m1BLS8m5E3e2QveC9"
   },
 
   /* ---------- TEKS ---------- */
@@ -60,26 +61,28 @@ window.INVITATION = {
   eventDescription: "Kami mengundang Anda untuk hadir dan memberikan doa restu pada hari bahagia kami.",
   verse: {
     text: "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.",
-    source: "Q.S. Ar-Rum : 21"
+    source: "(Q.S. Ar-Rum : 21)"
   },
-  openingText: "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami.",
+  openingText: "Tanpa Mengurangi Rasa Hormat. Kami Bermaksud Mengundang Bapak/Ibu/Saudara/i, Pada Acara Pernikahan Kami",
   closingText: "Merupakan kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.",
 
   /* ---------- HADIAH ---------- */
   gift: {
     title: "Wanna give us some gifts?",
-    intro: "Kehadiran dan doa Anda sudah menjadi hadiah terindah bagi kami. Namun jika ingin memberikan tanda kasih, dapat melalui:",
+    intro: "Kehadiran dan doa Anda sudah menjadi hadiah terindah bagi kami. Namun jika ingin memberikan tanda kasih, dapat melalui rekening berikut atau dikirim ke alamat rumah mempelai wanita:",
     accounts: [
       { label: "Bank BCA",  number: "0241563404",   name: "Khonsa Azzahrah" },
       { label: "ShopeePay", number: "085235597337", name: "Khonsa Azzahrah" }
     ],
     // Kosongkan deliveryAddress ("") jika tidak menerima kado fisik; kartunya otomatis disembunyikan.
-    deliveryName: "",
-    deliveryAddress: ""
+    deliveryName: "Rumah Mempelai Wanita",
+    deliveryAddress: "Jl. Slamet Riyadi Gang 5 No. 3, Patrang, Jember",
+    deliveryMapsUrl: "https://maps.app.goo.gl/m1BLS8m5E3e2QveC9"
   },
 
   /* ---------- MEDIA ---------- */
   // Foto mempelai (groom.photo & bride.photo di atas) dipakai untuk cover dan bagian mempelai.
+  coverPhoto: "assets/photos/gallery-5.jpg",   // foto cover (satu foto penuh)
   eventPhoto: "",          // opsional: foto latar bagian acara. Kosong = pakai foto mempelai wanita
   gallery: [               // foto yang filenya belum ada otomatis disembunyikan
     "assets/photos/gallery-1.jpg",

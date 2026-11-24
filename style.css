@@ -9,16 +9,16 @@
   --paper: #ebdfe0;      /* latar utama */
   --card: #f7f0f0;       /* kartu terang */
   --white: #fcf8f8;
-  --font-script: "Mr De Haviland", "Snell Roundhand", cursive;
+  --font-script: "Qwitcher Grypen", "Snell Roundhand", cursive;
   --font-serif: "Marcellus", Georgia, "Times New Roman", serif;
-  --font-sans: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   color-scheme: light;
 }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--ink); color: var(--charcoal);
-  font-family: var(--font-sans); font-weight: 300; font-size: 14px; line-height: 1.7;
+  font-family: var(--font-sans); font-weight: 400; font-size: 14px; line-height: 1.7;
 }
 body.locked { overflow: hidden; }
 h1, h2, h3, p { margin: 0; }
@@ -62,10 +62,10 @@ section { scroll-margin-top: 0; }
   text-align: center; padding-top: 56px; padding-bottom: 40px; overflow: hidden;
   background: linear-gradient(180deg, #f3eaeb 0%, #e3d0d3 100%);
 }
-.cover-photos { position: absolute; left: 0; right: 0; bottom: 0; top: 24%; display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+.cover-photos { position: absolute; left: 0; right: 0; bottom: 0; top: 24%; display: grid; grid-template-columns: 1fr; gap: 0;
   -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 22%); mask-image: linear-gradient(180deg, transparent 0, #000 22%); }
 .cover-photos .photo { border-radius: 0; background: linear-gradient(160deg, #e6d3d6 0%, #b99299 100%); }
-.cover-photos .photo img { object-position: 50% 12%; }
+.cover-photos .photo img { object-position: 50% 30%; }
 .cover-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(243,234,235,0) 55%, rgba(36,10,16,.88) 100%); pointer-events: none; }
 .cover-top, .guest { position: relative; z-index: 1; }
 .cover .names { font-size: clamp(30px, 9.5vw, 46px); line-height: 1.3; color: var(--charcoal); margin-top: 10px; }
@@ -113,7 +113,7 @@ section { scroll-margin-top: 0; }
 .slot .badge {
   position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); white-space: nowrap;
   background: var(--maroon); color: var(--white); border-radius: 999px; padding: 5px 16px;
-  font-size: 10px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500;
+  font-size: 10px; letter-spacing: .12em; text-transform: uppercase; font-weight: 500;
 }
 .slot-note { margin-top: 10px; font-size: 13px; color: var(--slate); }
 .slot:not(.featured) { opacity: .88; }
@@ -143,7 +143,7 @@ section { scroll-margin-top: 0; }
 form { display: grid; gap: 16px; }
 label, legend { display: grid; gap: 6px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--slate); font-weight: 400; }
 input, select, textarea {
-  font: inherit; font-size: 16px; letter-spacing: 0; text-transform: none; color: var(--ink); font-weight: 300;
+  font: inherit; font-size: 16px; letter-spacing: 0; text-transform: none; color: var(--ink); font-weight: 400;
   background: var(--white); border: 1px solid var(--mist); border-radius: 12px; padding: 12px 14px; width: 100%;
 }
 textarea { min-height: 100px; resize: vertical; }
@@ -209,3 +209,74 @@ form .btn { justify-self: center; margin-top: 8px; padding: 14px 34px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .music.on { animation: none; } }
 [hidden] { display: none !important; }
+
+
+/* ==========================================================
+   PENYESUAIAN AGAR SAMA DENGAN CONTOH (font, ukuran, posisi)
+   Ukuran diukur dari video contoh (lebar 576 px) dan diskalakan
+   dengan satuan --u, jadi proporsinya sama di semua layar.
+   Font: Marcellus (judul huruf kapital), Open Sans (teks),
+   Qwitcher Grypen (script, paling mendekati contoh).
+   ========================================================== */
+:root { --u: calc(min(100vw, 480px) / 576); }
+body { font-size: calc(var(--u) * 21); line-height: 1.48; font-weight: 400; }
+.caps { letter-spacing: 0; }
+.eyebrow { font-size: calc(var(--u) * 21); letter-spacing: .28em; line-height: 1.2; }
+
+/* Cover: foto penuh sampai atas, nama atas-bawah */
+.cover { background: var(--ink); padding-top: 18svh; padding-bottom: calc(var(--u) * 150); }
+.cover-photos { top: 0; -webkit-mask-image: none; mask-image: none; }
+.cover-photos .photo { background: linear-gradient(160deg, #6e1a2d 0%, #240a10 100%); }
+.cover-photos .photo img { object-position: 50% 35%; }
+.cover-shade { background: linear-gradient(180deg, rgba(36,10,16,.66) 0%, rgba(36,10,16,.28) 34%, rgba(36,10,16,0) 52%, rgba(36,10,16,.88) 100%); }
+.cover .eyebrow { color: var(--white); text-shadow: 0 1px 14px rgba(0,0,0,.4); }
+.cover .names { font-size: calc(var(--u) * 62); line-height: 1.42; margin-top: calc(var(--u) * 14); color: var(--white); letter-spacing: 0; text-shadow: 0 2px 18px rgba(0,0,0,.45); }
+.cover .names span { display: block; }
+.guest small { font-size: calc(var(--u) * 21); letter-spacing: 0; line-height: 1.48; }
+.guest strong { font-size: calc(var(--u) * 24); font-weight: 600; }
+
+/* Ayat */
+.verse .script { font-size: calc(var(--u) * 71); }
+.verse .q { font-size: calc(var(--u) * 21); line-height: 1.48; }
+.verse cite { font-size: calc(var(--u) * 21); font-style: italic; letter-spacing: 0; margin-top: calc(var(--u) * 24); }
+
+/* Mempelai */
+.couple .lead { max-width: none; font-size: calc(var(--u) * 21); margin: 0 auto calc(var(--u) * 50); }
+.person { gap: 0; }
+.person .photo { width: calc(var(--u) * 366); aspect-ratio: 366 / 513; border-radius: calc(var(--u) * 30); margin-bottom: calc(var(--u) * 36); }
+.person h2 { font-size: calc(var(--u) * 45.5); line-height: 1.1; margin-bottom: calc(var(--u) * 14); }
+.person .child { font-size: calc(var(--u) * 21); line-height: 1.48; max-width: none; white-space: nowrap; }
+.amp { font-size: calc(var(--u) * 80); margin: calc(var(--u) * 40) 0; }
+
+/* Acara: "WEDDING" + "Event" script bertumpuk */
+.event .wedding-title {
+  position: relative; display: inline-block; font-family: var(--font-serif); font-weight: 400; text-transform: uppercase;
+  font-size: calc(var(--u) * 66); line-height: 1; letter-spacing: 0; color: var(--white); margin: 0 0 calc(var(--u) * 56);
+}
+.event .wedding-title span {
+  position: absolute; left: calc(50% + var(--u) * 4); top: calc(var(--u) * 22); transform: translateX(-50%);
+  font-family: var(--font-script); font-size: calc(var(--u) * 92); line-height: 1; text-transform: none; white-space: nowrap;
+  -webkit-text-stroke: calc(var(--u) * 1.3) currentColor; paint-order: stroke fill;
+}
+.slot h3, .slot.featured h3 { font-size: calc(var(--u) * 36.6); line-height: 1.2; margin-bottom: calc(var(--u) * 10); letter-spacing: 0; }
+.slot .when { font-size: calc(var(--u) * 21); line-height: 1.48; }
+.slot-note { font-size: calc(var(--u) * 21); }
+.venue-link span:not(.eyebrow) { font-size: calc(var(--u) * 21); }
+
+/* Hitung mundur: tepat di tengah antara Akad dan Resepsi (jarak atas = jarak bawah) */
+.event .slot { margin-bottom: 0; }
+.cd-block { text-align: center; margin: calc(var(--u) * 44) 0; }
+.cd-block .count { gap: calc(var(--u) * 11); margin: 0; }
+.cd-block .count div { background: var(--card); color: var(--charcoal); border-radius: calc(var(--u) * 14); padding: calc(var(--u) * 10) 0 calc(var(--u) * 8); }
+.count b { font-size: calc(var(--u) * 32); font-weight: 600; line-height: 1.15; }
+.count small { font-size: calc(var(--u) * 21); letter-spacing: 0; color: var(--charcoal); line-height: 1.3; }
+.save-wrap { text-align: center; margin: calc(var(--u) * 34) 0 0; }
+.save-wrap .btn { color: var(--white); }
+.save-wrap .btn:hover { color: var(--ink); }
+
+/* Galeri, RSVP, ucapan, hadiah, penutup */
+.gallery .script { font-size: calc(var(--u) * 71); margin-bottom: calc(var(--u) * 34); }
+.rsvp h2 { font-size: calc(var(--u) * 49.6); line-height: 1.1; margin-top: 0; }
+.rsvp .head p:last-child { font-size: calc(var(--u) * 21); margin-top: calc(var(--u) * 30); }
+.wishes .script, .gift .script, .closing .script { font-size: calc(var(--u) * 71); }
+.gift-intro { font-size: calc(var(--u) * 21); max-width: 34ch; }

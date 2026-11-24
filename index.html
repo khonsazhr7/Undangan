@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#2a0a12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mr+De+Haviland&family=Poppins:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Qwitcher+Grypen&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,8 +18,7 @@
   <!-- COVER -->
   <section class="cover" id="cover">
     <div class="cover-photos" aria-hidden="true">
-      <div class="photo" id="cvGroom"></div>
-      <div class="photo" id="cvBride"></div>
+      <div class="photo" id="cvPhoto"></div>
     </div>
     <div class="cover-shade"></div>
     <div class="cover-top pad">
@@ -42,31 +41,26 @@
 
   <!-- MEMPELAI -->
   <section class="couple pad" id="mempelai">
-    <p class="eyebrow">Mempelai</p>
     <p class="lead" id="openingText"></p>
     <div class="person" id="bride"></div>
     <p class="amp">&amp;</p>
     <div class="person" id="groom"></div>
   </section>
 
-  <!-- HITUNG MUNDUR -->
-  <section class="countdown pad" id="countdown">
-    <p class="eyebrow" id="countLabel">Menuju Resepsi</p>
-    <div class="count" aria-label="Hitung mundur menuju pernikahan">
+  <!-- ACARA -->
+  <section class="event pad" id="acara">
+    <h2 class="wedding-title">Wedding<span>Event</span></h2>
+    <div id="eventList"></div>
+    <!-- HITUNG MUNDUR: dipindah script ke tengah antara Akad dan Resepsi -->
+    <div class="cd-block" id="countdown">
+    <div class="count" aria-label="Hitung mundur menuju resepsi">
       <div><b id="cdD">00</b><small>Hari</small></div>
       <div><b id="cdH">00</b><small>Jam</small></div>
       <div><b id="cdM">00</b><small>Menit</small></div>
       <div><b id="cdS">00</b><small>Detik</small></div>
     </div>
-    <a class="btn" id="saveDate" href="#" target="_blank" rel="noopener">Save the Date</a>
-    <p class="hint">Ketuk untuk menyimpan ke Google Calendar</p>
-  </section>
-
-  <!-- ACARA -->
-  <section class="event pad" id="acara">
-    <p class="eyebrow">Save the Date</p>
-    <h2 class="script">Wedding Event</h2>
-    <div id="eventList"></div>
+    </div>
+    <div class="save-wrap"><a class="btn small" id="saveDate" href="#" target="_blank" rel="noopener">Save the Date</a></div>
     <a class="venue-link" id="venueLink" href="#" target="_blank" rel="noopener">
       <span class="eyebrow">Lokasi</span>
       <strong id="venueName"></strong>
@@ -86,8 +80,7 @@
   <!-- RSVP -->
   <section class="rsvp pad" id="rsvp">
     <div class="head">
-      <p class="eyebrow">RSVP</p>
-      <h2 class="caps">Konfirmasi Kehadiran</h2>
+      <h2 class="caps">RSVP</h2>
       <p>Mohon konfirmasi kehadiran dan kirim ucapan untuk kami.</p>
     </div>
     <form id="rsvpForm" novalidate>
@@ -127,6 +120,7 @@
       <p class="acc-name" id="giftTo"></p>
       <p class="addr" id="giftAddr"></p>
       <button class="btn small" type="button" id="copyAddr">Salin alamat</button>
+      <a class="btn small" id="giftMap" href="#" target="_blank" rel="noopener" hidden>Lihat di Google Maps</a>
     </div>
   </section>
 

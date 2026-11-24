@@ -45,9 +45,12 @@
   /* ---------- isi konten dari config ---------- */
   var G = C.groom, B = C.bride;
   document.title = "Undangan " + B.nickname + " & " + G.nickname;
-  setText("coverNames", B.nickname + " & " + G.nickname);
-  setPhoto($("cvGroom"), G.photo);
-  setPhoto($("cvBride"), B.photo);
+  (function () {
+    var h = $("coverNames");
+    h.appendChild(el("span", null, B.nickname + " &"));
+    h.appendChild(el("span", null, G.nickname));
+  })();
+  setPhoto($("cvPhoto"), C.coverPhoto);
   // foto latar bagian acara (default: foto mempelai wanita)
   (function () {
     var src = C.eventPhoto || B.photo, probe = new Image();
@@ -86,11 +89,10 @@
 
   /* ---------- acara, maps, calendar ---------- */
   var main = C.events.filter(function (e) { return e.countdown; })[0] || C.events[0];
-  setText("countLabel", "Menuju " + main.title);
   var list = $("eventList");
-  C.events.forEach(function (ev) {
+  C.events.forEach(function (ev, idx) {
     var s = el("div", "slot" + (ev.highlight ? " featured" : ""));
-    if (ev.highlight) s.appendChild(el("span", "badge", "Anda diundang ke sini"));
+    if (ev.highlight) s.appendChild(el("span", "badge", ev.badge || "Kami Menantikan Kehadiran Anda"));
     s.appendChild(el("h3", "caps", ev.title));
     var w = el("p", "when");
     w.appendChild(document.createTextNode(fmtDate(ev.start)));
@@ -99,7 +101,10 @@
     s.appendChild(w);
     if (ev.note) s.appendChild(el("p", "slot-note", ev.note));
     list.appendChild(s);
+    // hitung mundur ditempatkan di tengah, setelah acara pertama (Akad) dan sebelum acara berikutnya
+    if (idx === 0 && C.events.length > 1) list.appendChild($("countdown"));
   });
+  if (C.events.length < 2) list.appendChild($("countdown"));
 
   var q = encodeURIComponent(C.venue.name + ", " + C.venue.address);
   var mapsUrl = C.venue.mapsUrl || ("https://www.google.com/maps/search/?api=1&query=" + q);
@@ -183,6 +188,8 @@
     setText("giftTo", Gf.deliveryName);
     setText("giftAddr", Gf.deliveryAddress);
     copy($("copyAddr"), Gf.deliveryAddress);
+    var gm = Gf.deliveryMapsUrl || C.venue.mapsUrl || ("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(Gf.deliveryAddress));
+    var gl = $("giftMap"); gl.href = gm; gl.hidden = false;
   }
 
   setText("closingText", C.closingText);
@@ -218,7 +225,7 @@
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
     }, { threshold: 0.12 });
-    document.querySelectorAll(".verse > *, .couple > *, .countdown > *, .event > *, .gallery > *, .rsvp > *, .wishes > *, .gift > *")
+    document.querySelectorAll(".verse > *, .couple > *, .cd-block > *, .event > *, .gallery > *, .rsvp > *, .wishes > *, .gift > *")
       .forEach(function (n) { n.classList.add("fade"); io.observe(n); });
   }
 
